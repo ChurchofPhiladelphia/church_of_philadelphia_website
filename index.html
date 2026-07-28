@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church of Philadelphia - Portal of Faith</title>
+    <meta name="description" content="Official sanctuary website of the Church of Philadelphia. Built upon the scriptures of Revelation 3:7-13.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0d; /* Deep obsidian black */
+            --bg-card: rgba(18, 20, 24, 0.65); /* Translucent dark navy-charcoal */
+            --border: rgba(197, 160, 89, 0.15); /* Muted gold border */
+            --accent-gold: #c5a059; /* Antique gold */
+            --accent-gold-glow: rgba(197, 160, 89, 0.3);
+            --accent-cyan: #00e5ff; /* Electric cyan blue */
+            --accent-cyan-glow: rgba(0, 229, 255, 0.35);
+            --text-primary: #f5f6f8; /* Off-white */
+            --text-secondary: #9fa4b3; /* Muted slate gray */
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(0, 229, 255, 0.04) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(197, 160, 89, 0.05) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 11, 13, 0.75);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+        }
+
+        .nav-logo span {
+            color: var(--accent-gold);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item a:hover,
+        .nav-item.active a {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, rgba(197, 160, 89, 0.04) 50%, transparent 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: pulse-glow 8s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-logo-large {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.2)) drop-shadow(0 0 15px rgba(197, 160, 89, 0.25));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(197, 160, 89, 0.03);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.05);
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-gold-bright) 70%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-scripture {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 0 30px;
+            border-left: 2px solid var(--accent-gold);
+            border-right: 2px solid var(--accent-gold);
+        }
+
+        .hero-scripture span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-gold);
+            font-style: normal;
+            letter-spacing: 1px;
+        }
+
+        .btn-portal {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.15) 0%, rgba(0, 229, 255, 0.1) 100%);
+            border: 1px solid var(--accent-gold);
+            color: #ffffff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
+        }
+
+        .btn-portal:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 25px var(--accent-cyan-glow);
+            transform: translateY(-2px);
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title-wrapper {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #ffffff 0%, var(--accent-gold-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphic Panel */
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 45px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        /* Scriptures Section (Interactive Tabs) */
+        .scripture-deck {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            min-height: 480px;
+        }
+
+        .tabs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(0, 229, 255, 0.3);
+            color: #ffffff;
+        }
+
+        .tab-btn.active {
+            border-color: var(--accent-cyan);
+            background: linear-gradient(90deg, rgba(0, 229, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+        }
+
+        .tab-btn-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn.active .tab-btn-title {
+            color: var(--accent-cyan);
+        }
+
+        .tab-btn-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .tab-content-panel {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scripture-verse {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            border-left: 3px solid var(--accent-cyan);
+            padding-left: 20px;
+        }
+
+        .scripture-ref {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .scripture-commentary {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* Leadership Section */
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .minister-card {
+            background: rgba(18, 20, 24, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .minister-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.08);
+        }
+
+        .minister-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 25px auto;
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(197, 160, 89, 0.05);
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            position: relative;
+        }
+
+        .minister-card:hover .minister-avatar {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 25px var(--accent-cyan-glow);
+        }
+
+        .minister-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .minister-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .minister-card:hover .minister-role {
+            color: var(--accent-cyan);
+        }
+
+        .minister-bio {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-weight: 300;
+            text-align: left;
+        }
+
+        /* Sanctuary Section */
+        .sanctuary-intro {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .sanctuary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .sanctuary-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sanctuary-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
+        }
+
+        .sanctuary-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .sanctuary-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .sanctuary-card:hover .sanctuary-img {
+            transform: scale(1.05);
+        }
+
+        .sanctuary-details {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sanctuary-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .sanctuary-card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .contact-meta {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-meta-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-meta-icon {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .contact-meta-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-meta-text strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, rgba(197, 160, 89, 0.8) 100%);
+            border: none;
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, rgba(0, 229, 255, 0.8) 100%);
+            box-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+
+        .success-banner {
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 0.4s forwards;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        footer span {
+            color: var(--accent-gold);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .scripture-deck {
+                grid-template-columns: 1fr;
+            }
+            .ministry-grid {
+                grid-template-columns: 1fr;
+            }
+            .sanctuary-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.6rem;
+            }
+            .hero-scripture {
+                font-size: 1.15rem;
+            }
+            .sanctuary-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <img src="church_philadelphia_transparent.png" alt="Church of Philadelphia Logo">
+                CHURCH OF PHILADELPHIA
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="#">Home</a></li>
+                <li class="nav-item"><a href="#scriptures">Scriptures</a></li>
+                <li class="nav-item"><a href="#sanctuary">Sanctuary</a></li>
+                <li class="nav-item"><a href="#connect">Connect</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Portal Section -->
+    <section class="hero-section">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-content">
+            <img class="hero-logo-large" src="church_philadelphia_transparent.png" alt="Church of Philadelphia Symbol">
+            <span class="hero-tagline">Revelation 3:7-13 Covenant</span>
+            <h1 class="hero-title">A Pillar in the Temple of God</h1>
+            <p class="hero-scripture">
+                "Behold, I have set before thee an open door, and no man can shut it: for thou hast a little strength, and hast kept my word, and hast not denied my name."
+                <span>— Revelation 3:8</span>
+            </p>
+            <a href="#scriptures" class="btn-portal">
+                Open The Portal of Faith
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Scriptures Section -->
+    <section class="section" id="scriptures">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Epistle of Revelation</span>
+                <h2 class="section-title">The Seven Covenants of Philadelphia</h2>
+            </div>
+            
+            <div class="panel">
+                <div class="scripture-deck">
+                    <!-- Left: Navigation Tabs -->
+                    <div class="tabs-list">
+                        <button class="tab-btn active" onclick="switchTab(0)">
+                            <div class="tab-btn-title">Ⅰ. He That Is Holy &amp; True</div>
+                            <div class="tab-btn-subtitle">Divine Identity</div>
+                        </button>
+                        <button class="tab-btn" onclick="switchTab(1)">
+                            <div class="tab-btn-title">Ⅱ. The Key of David</div>
+                            <div class="tab-btn-subtitle">Spiritual Access</div>
+                        </button>
+                        <button class="tab-btn" onclick="switchTab(2)">
+                            <div class="tab-btn-title">Ⅲ. The Open Door</div>
+                            <div class="tab-btn-subtitle">Unhindered Outreach</div>
+                        </button>
+                        <button class="tab-btn" onclick="switchTab(3)">
+                            <div class="tab-btn-title">Ⅳ. Keep My Word</div>
+                            <div class="tab-btn-subtitle">Patient Endurance</div>
+                        </button>
+                        <button class="tab-btn" onclick="switchTab(4)">
+                            <div class="tab-btn-title">Ⅴ. The Hour of Temptation</div>
+                            <div class="tab-btn-subtitle">Divine Shield</div>
+                        </button>
+                        <button class="tab-btn" onclick="switchTab(5)">
+                            <div class="tab-btn-title">Ⅵ. A Pillar in the Temple</div>
+                            <div class="tab-btn-subtitle">Eternal Foundation</div>
+                        </button>
+                        <button class="tab-btn" onclick="switchTab(6)">
+                            <div class="tab-btn-title">Ⅶ. The New Name</div>
+                            <div class="tab-btn-subtitle">Sacred Covenant</div>
+                        </button>
+                    </div>
+
+                    <!-- Right: Reading Content Panel -->
+                    <div class="tab-content-panel">
+                        <!-- Tab 1 -->
+                        <div class="tab-content active">
+                            <p class="scripture-verse">"These things saith he that is holy, he that is true, he that hath the key of David, he that openeth, and no man shutteth; and shutteth, and no man openeth..."</p>
+                            <span class="scripture-ref">Revelation 3:7</span>
+                            <p class="scripture-commentary">The epistle begins with the confirmation of ultimate spiritual sovereignty. Christ presents himself in his absolute purity ("holy") and absolute reality ("true"). The message to Philadelphia is grounded in the absolute authority of the King, ensuring that the covenants that follow are irreversible and eternal.</p>
+                        </div>
+                        
+                        <!-- Tab 2 -->
+                        <div class="tab-content">
+                            <p class="scripture-verse">"He that hath the key of David, he that openeth, and no man shutteth..."</p>
+                            <span class="scripture-ref">Isaiah 22:22 / Revelation 3:7</span>
+                            <p class="scripture-commentary">The "Key of David" refers to royal administrative and spiritual stewardship. Drawn from Isaiah 22:22, it signifies the master key to the treasury and chambers of the Kingdom. In the context of Philadelphia, it represents the authority to delegate access to spiritual blessings and resources, unlocking doors that no earthly power can lock.</p>
+                        </div>
+
+                        <!-- Tab 3 -->
+                        <div class="tab-content">
+                            <p class="scripture-verse">"Behold, I have set before thee an open door, and no man can shut it..."</p>
+                            <span class="scripture-ref">Revelation 3:8</span>
+                            <p class="scripture-commentary">The open door represents divine opportunity, spiritual liberty, and unhindered pathways. It represents the church's outreach, private administration, and ministry capabilities which remain completely open. Even with "a little strength," the door remains open because it is sustained by the King's own key.</p>
+                        </div>
+
+                        <!-- Tab 4 -->
+                        <div class="tab-content">
+                            <p class="scripture-verse">"...for thou hast a little strength, and hast kept my word, and hast not denied my name."</p>
+                            <span class="scripture-ref">Revelation 3:8</span>
+                            <p class="scripture-commentary">Philadelphia is praised for its quiet faithfulness. Lacking massive material power ("a little strength"), it did not compromise the word of truth or deny the covenant name. In a world of spiritual dilution, the Church of Philadelphia holds fast to the scriptures and retains the purity of the message.</p>
+                        </div>
+
+                        <!-- Tab 5 -->
+                        <div class="tab-content">
+                            <p class="scripture-verse">"Because thou hast kept the word of my patience, I also will keep thee from the hour of temptation, which shall come upon all the world..."</p>
+                            <span class="scripture-ref">Revelation 3:10</span>
+                            <p class="scripture-commentary">The promise of sanctuary and safety. Because the church remains patiently focused on keeping the Word, it inherits the covenant shield of protection. It will be kept and preserved from the global testing ("hour of temptation") that tries those who dwell on the earth.</p>
+                        </div>
+
+                        <!-- Tab 6 -->
+                        <div class="tab-content">
+                            <p class="scripture-verse">"Him that overcometh will I make a pillar in the temple of my God, and he shall go out no more..."</p>
+                            <span class="scripture-ref">Revelation 3:12</span>
+                            <p class="scripture-commentary">The ultimate promise of architectural and spiritual permanence. A pillar is structural, supportive, and immovable. Unlike the historical city of Philadelphia, which suffered frequent, destructive earthquakes forcing citizens to flee, the overcomer becomes an immovable pillar in the heavenly sanctuary—established forever.</p>
+                        </div>
+
+                        <!-- Tab 7 -->
+                        <div class="tab-content">
+                            <p class="scripture-verse">"...and I will write upon him the name of my God, and the name of the city of my God... and I will write upon him my new name."</p>
+                            <span class="scripture-ref">Revelation 3:12</span>
+                            <p class="scripture-commentary">The writing of three sacred names represents ultimate ownership, citizenship, and identity. It seals the overcomer as belonging to the Creator, as an official citizen of the New Jerusalem, and as bearing the new character and authority of the King himself.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Sanctuary Development Section -->
+    <section class="section" id="sanctuary">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Physical Manifestation</span>
+                <h2 class="section-title">Mission House Sanctuary</h2>
+            </div>
+
+            <p class="sanctuary-intro">
+                The Church of Philadelphia in fellowship with Mission House, the House of Brode and the House of Fisher are in the planning stages of our Mission House Campus in Scottsdale Arizona. The architectural concepts include a peaceful setting for private assembly of our members, a daily fellowship lounge and room for meetings and conferences to fulfil our Heavenly Father's Will on Earth.
+            </p>
+
+            <div class="sanctuary-grid">
+                <!-- Card 1 -->
+                <div class="sanctuary-card">
+                    <div class="sanctuary-img-wrapper">
+                        <img class="sanctuary-img" src="church_exterior.png" alt="Sanctuary Exterior">
+                    </div>
+                    <div class="sanctuary-details">
+                        <h4 class="sanctuary-card-title">Sanctuary Exterior</h4>
+                        <p class="sanctuary-card-desc">Constructed from split-faced Fossil Beige ledger stone panels blending naturally with the rugged Arizona desert peaks.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="sanctuary-card">
+                    <div class="sanctuary-img-wrapper">
+                        <img class="sanctuary-img" src="church_interior_worship.png" alt="Sanctuary Assembly Hall">
+                    </div>
+                    <div class="sanctuary-details">
+                        <h4 class="sanctuary-card-title">Worship Assembly Hall</h4>
+                        <p class="sanctuary-card-desc">Features a double-height panoramic glass window wall, framing the natural desert mountain landscape as a living altarpiece.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="sanctuary-card">
+                    <div class="sanctuary-img-wrapper">
+                        <img class="sanctuary-img" src="church_refreshment_bar.png" alt="Sanctuary Reception Foyer">
+                    </div>
+                    <div class="sanctuary-details">
+                        <h4 class="sanctuary-card-title">Fellowship Lounge</h4>
+                        <p class="sanctuary-card-desc">A light-filled gathering foyer and coffee bar with warm timber ceiling textures designed for quiet fellowship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect / Contact Section -->
+    <section class="section" id="connect">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <span class="section-subtitle">Reach Out</span>
+                <h2 class="section-title">Connect with the Council</h2>
+            </div>
+            
+            <div class="panel">
+                <div class="contact-layout">
+                    <!-- Contact Details -->
+                    <div class="contact-info">
+                        <h3>Spiritual Sanctuary</h3>
+                        <p>Whether you seek prayer requests, counseling, or wish to connect with our ministries, the elders of Philadelphia are ready to open the door to support you.</p>
+                        
+                        <ul class="contact-meta">
+                            <li class="contact-meta-item">
+                                <span class="contact-meta-icon">✉</span>
+                                <div class="contact-meta-text">
+                                    <strong>Email Registry</strong>
+                                    council@church-of-philadelphia.org
+                                </div>
+                            </li>
+                            <li class="contact-meta-item">
+                                <span class="contact-meta-icon">☉</span>
+                                <div class="contact-meta-text">
+                                    <strong>Scottsdale Chapter Mailing Address</strong>
+                                    28150 N Alma School Parkway<br>Suite 103-180<br>Scottsdale, AZ 85262
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div>
+                        <form id="prayerForm" onsubmit="submitForm(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="senderName">Your Name</label>
+                                <input class="form-control" type="text" id="senderName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="senderEmail">Email Address</label>
+                                <input class="form-control" type="email" id="senderEmail" required placeholder="Enter your email address">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="message">Prayer Request or Inquiry</label>
+                                <textarea class="form-control" id="message" required placeholder="Write your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Submit to the Registry</button>
+                        </form>
+                        <div class="success-banner" id="successBanner">
+                            <strong>Success:</strong> Your request has been securely recorded in the registry. May peace and faith be multiplied to you.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>CHURCH OF PHILADELPHIA &copy; 2026 &bull; <a href="privacy.html" style="color: var(--accent-cyan); text-decoration: underline;">Privacy Policy &amp; Covenants</a></div>
+        <div style="font-size:0.75rem; margin-top: 5px; opacity: 0.5;">REVELATION 3:7-13 COVENANT &bull; Scottsdale, AZ &bull; Powered by <span>Antigravity AI</span></div>
+        
+        <!-- Member link to Mission House with Logo -->
+        <div style="margin-top: 25px; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <a href="https://www.mission-house.org" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; gap: 8px;">
+                <img src="mh_logo.png" alt="Mission House Logo" style="width: 120px; height: 120px; object-fit: contain; opacity: 0.85; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'">
+                <div style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 1px;">Affiliated Church to Mission House</div>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Interactive tabs logic
+        function switchTab(index) {
+            // Remove active class from all buttons and contents
+            const buttons = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to selected button and content
+            buttons[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+
+        // Mock form submission logic
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Hide the form
+            document.getElementById('prayerForm').style.display = 'none';
+            
+            // Display the success banner
+            const banner = document.getElementById('successBanner');
+            banner.style.display = 'block';
+        }
+
+        // Smooth active navigation highlight on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section, .hero-section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = 'home';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    const id = section.getAttribute('id');
+                    if (id) {
+                        current = id;
+                    }
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const link = item.querySelector('a').getAttribute('href');
+                if (link === '#' && current === 'home') {
+                    item.classList.add('active');
+                } else if (link === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

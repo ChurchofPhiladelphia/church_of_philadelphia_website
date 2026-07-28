@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy &amp; Data Covenants | Church of Philadelphia</title>
+    <meta name="description" content="Privacy Policy and Data Covenants of the Church of Philadelphia. Our commitment to absolute spiritual and digital privacy.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0d; /* Deep obsidian black */
+            --bg-card: rgba(18, 20, 24, 0.65); /* Translucent dark navy-charcoal */
+            --border: rgba(197, 160, 89, 0.15); /* Muted gold border */
+            --accent-gold: #c5a059; /* Antique gold */
+            --accent-gold-glow: rgba(197, 160, 89, 0.3);
+            --accent-gold-bright: #e9c47a;
+            --accent-cyan: #00e5ff; /* Electric cyan blue */
+            --accent-cyan-glow: rgba(0, 229, 255, 0.35);
+            --text-primary: #f5f6f8; /* Off-white */
+            --text-secondary: #9fa4b3; /* Muted slate gray */
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(0, 229, 255, 0.04) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(197, 160, 89, 0.05) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 11, 13, 0.75);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item a:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        /* Hero / Header Section */
+        .hero-section {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 100px;
+            padding-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ffffff 0%, var(--accent-gold-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Content Section */
+        .section {
+            padding: 40px 0 100px 0;
+        }
+
+        /* Glassmorphic Panel */
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .disclaimer-box {
+            background: rgba(197, 160, 89, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.02);
+        }
+
+        .disclaimer-box h3 {
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .disclaimer-box p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .policy-section {
+            margin-bottom: 40px;
+        }
+
+        .policy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 8px;
+        }
+
+        .policy-section p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            margin-left: 5px;
+            margin-bottom: 20px;
+        }
+
+        .policy-section li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .policy-section li::before {
+            content: "☉";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        footer span {
+            color: var(--accent-gold);
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .panel {
+                padding: 30px 20px;
+            }
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="church_philadelphia_transparent.png" alt="Church of Philadelphia Logo">
+                CHURCH OF PHILADELPHIA
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="index.html#scriptures">Scriptures</a></li>
+                <li class="nav-item"><a href="index.html#sanctuary">Sanctuary</a></li>
+                <li class="nav-item"><a href="index.html#connect">Connect</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <span class="hero-tagline">Data Covenants</span>
+            <h1 class="hero-title">Privacy Policy &amp; Covenants</h1>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="panel">
+                
+                <div class="disclaimer-box">
+                    <h3>Notice of Free and Private Association</h3>
+                    <p>The Church of Philadelphia is a private, unincorporated spiritual assembly acting as a sovereign Unincorporated Church. As a spiritual fellowship of believers, we operate entirely apart from digital commerce, data harvesting, or any secular enterprise designed to monetize personal information. By navigating our resources, you acknowledge and agree that your interaction is covered by the fundamental human right to private free assembly, thought, and religious observation.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>1. Data Minimization &amp; Abstraction</h2>
+                    <p>We believe the physical Temple and the living soul require absolute autonomy regarding personal information. The Church of Philadelphia employs a strict policy of Data Minimization.</p>
+                    <ul>
+                        <li><strong>No Tracking:</strong> We do not deploy cookies, pixels, or trackers designed to follow your behavior across the internet.</li>
+                        <li><strong>No Selling:</strong> We do not—and will permanently never—sell, rent, or distribute any information regarding our Members, Ambassadors, or public visitors to third parties.</li>
+                        <li><strong>Financial Privacy:</strong> Any contributions made via our cryptographic gateways are processed using Zero-Knowledge Proofs (ZKP) to ensure that the validity of a transaction is mathematically confirmed without exposing the sensitive identity or account details of the living soul providing the stewardship.</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>2. Communications Protocol</h2>
+                    <p>Any data submitted through our "Transmit to Council" portal is encrypted and routed exclusively to the secure administrative servers of the Church of Philadelphia. The information you provide—such as a return address or ministry name—is used solely to facilitate the specific pastoral guidance, mentorship, or administrative response requested.</p>
+                    <p>Emails and physical correspondence are routinely purged in accordance with our administrative covenants once the pastoral or structural matter has been resolved, unless retention is specifically required for ongoing mentorship.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>3. Master Library &amp; Portal Access Controls</h2>
+                    <p>Access points to the Member and Ambassador portals are strictly ring-fenced environments.</p>
+                    <ul>
+                        <li><strong>Ambassador Secrecy:</strong> No private Ambassador discussion, materials regarding establishing a MicroChurch or MicroMinistry, or any other protected structural framework may be duplicated or distributed in a public forum.</li>
+                        <li><strong>Revocation:</strong> Breaching the confidentiality of our Master Library is grounds for immediate cryptographic revocation of gateway access keys by the Board of Trustees.</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>4. International Jurisdictional Acknowledgment</h2>
+                    <p>The Church of Philadelphia is governed primarily by ecclesiastical and private trust covenants. The memorialization of its establishment is duly legalized by the District Court of Den Haag (The Hague), Apostille No. 24/16616. Any secular dispute regarding the administration of this website or data covenants shall be subject exclusively to private, binding arbitration as designed by the Board of Trustees, rejecting public secular trial.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>5. Amendments to this Covenant</h2>
+                    <p>The Board of Trustees retains the absolute right to update, modify, or extend these privacy protocols at any time to further fortify the digital boundaries of our Chapel. Any material changes will be formally announced through the secure Member Portal.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>CHURCH OF PHILADELPHIA &copy; 2026 &bull; <a href="privacy.html">Privacy Policy &amp; Covenants</a></div>
+        <div style="font-size:0.75rem; margin-top: 5px; opacity: 0.5;">REVELATION 3:7-13 COVENANT &bull; Scottsdale, AZ &bull; Powered by <span>Antigravity AI</span></div>
+        
+        <!-- Member link to Mission House with Logo -->
+        <div style="margin-top: 25px; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <a href="https://www.mission-house.org" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; gap: 8px;">
+                <img src="mh_logo.png" alt="Mission House Logo" style="width: 120px; height: 120px; object-fit: contain; opacity: 0.85; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'">
+                <div style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 1px;">Affiliated Church to Mission House</div>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
