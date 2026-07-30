@@ -493,7 +493,7 @@
         /* Print Style Overrides - Single Page Chancery Certificate Layout */
         @media print {
             @page {
-                size: letter portrait;
+                size: 8.5in 11in portrait;
                 margin: 0;
             }
 
@@ -506,10 +506,10 @@
                 color: #0f172a !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
+                width: 8.5in !important;
+                height: 11in !important;
+                max-width: 8.5in !important;
+                max-height: 11in !important;
                 overflow: hidden !important;
                 background-image: none !important;
             }
@@ -520,22 +520,24 @@
 
             .print-only-cert {
                 display: block !important;
-                width: 100% !important;
-                height: 100vh !important;
-                max-width: 100% !important;
-                max-height: 100vh !important;
+                width: 8.5in !important;
+                height: 11in !important;
+                max-width: 8.5in !important;
+                max-height: 11in !important;
                 box-sizing: border-box !important;
                 background: #ffffff !important;
-                padding: 8mm 10mm !important;
+                padding: 0.3in 0.4in !important;
+                margin: 0 auto !important;
+                overflow: hidden !important;
             }
 
             .cert-border {
                 border: 4px solid #0099b8 !important; /* Electric Cyan Outer Border */
                 outline: 1px solid #0f172a !important; /* Inner Thin Dark Border */
-                outline-offset: -8px;
+                outline-offset: -7px;
                 width: 100% !important;
                 height: 100% !important;
-                padding: 1.2rem 1.4rem !important;
+                padding: 0.35in 0.45in 0.25in 0.45in !important;
                 box-sizing: border-box !important;
                 display: flex !important;
                 flex-direction: column !important;
@@ -560,29 +562,29 @@
 
             .cert-header {
                 text-align: center;
-                margin-top: 0.1rem;
-                margin-bottom: 0.2rem;
+                margin-top: 0.05in;
+                margin-bottom: 0.15in;
             }
 
             .cert-seal-top {
-                height: 60px;
+                height: 52px;
                 width: auto;
-                margin-bottom: 0.2rem;
+                margin-bottom: 0.15in;
             }
 
             .cert-title-main {
                 font-family: 'Cinzel', serif;
                 text-transform: uppercase;
-                font-size: 1.95rem;
+                font-size: 1.85rem;
                 letter-spacing: 3px;
                 color: #0f172a;
-                margin: 0 0 0.1rem 0;
+                margin: 0 0 0.05in 0;
                 font-weight: 700;
             }
 
             .cert-title-sub {
                 font-family: 'Cinzel', serif;
-                font-size: 1rem;
+                font-size: 0.95rem;
                 color: #0088a8;
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -595,31 +597,31 @@
                 flex-direction: column !important;
                 justify-content: space-evenly !important;
                 flex-grow: 1 !important;
-                margin: 0.2rem 0 !important;
-                gap: 0.3rem !important;
+                margin: 0.1in 0 !important;
+                gap: 0.15in !important;
             }
 
             .cert-attestation-text {
                 font-family: 'Cormorant Garamond', serif;
-                font-size: 1.15rem;
+                font-size: 1.1rem;
                 line-height: 1.4;
                 text-align: justify;
                 text-align-last: center;
                 color: #0f172a;
                 font-style: italic;
-                margin: 0.2rem auto;
-                max-width: 90%;
+                margin: 0.1in auto;
+                max-width: 95%;
             }
 
             .cert-meta-grid {
                 display: grid !important;
                 grid-template-columns: 1fr 1fr !important;
-                gap: 0.4rem !important;
+                gap: 0.1in !important;
                 border-top: 1px solid #cbd5e1 !important;
                 border-bottom: 1px solid #cbd5e1 !important;
-                padding: 0.3rem 0 !important;
-                max-width: 90% !important;
-                margin: 0.15rem auto !important;
+                padding: 0.1in 0 !important;
+                max-width: 95% !important;
+                margin: 0.08in auto !important;
                 width: 100% !important;
             }
 
@@ -631,16 +633,16 @@
 
             .cert-meta-label {
                 font-family: 'Outfit', sans-serif;
-                font-size: 0.65rem;
+                font-size: 0.62rem;
                 text-transform: uppercase;
                 color: #64748b;
                 letter-spacing: 1px;
-                margin-bottom: 0.1rem;
+                margin-bottom: 0.03in;
             }
 
             .cert-meta-val {
                 font-family: 'Outfit', sans-serif;
-                font-size: 0.9rem;
+                font-size: 0.88rem;
                 font-weight: 700;
                 color: #0f172a;
             }
@@ -651,7 +653,7 @@
 
             .cert-badge-box {
                 text-align: center;
-                margin: 0.15rem auto;
+                margin: 0.08in auto;
             }
 
             .cert-badge-text {
@@ -662,7 +664,7 @@
                 padding: 3px 14px;
                 border-radius: 4px;
                 font-family: 'Outfit', sans-serif;
-                font-size: 0.72rem;
+                font-size: 0.7rem;
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
@@ -671,27 +673,27 @@
             .cert-legalization-wrapper {
                 border: 1px solid rgba(0, 153, 184, 0.35) !important;
                 background: rgba(0, 153, 184, 0.04) !important;
-                padding: 0.4rem 0.8rem !important;
-                max-width: 90% !important;
-                margin: 0.15rem auto !important;
+                padding: 0.12in 0.25in !important;
+                max-width: 95% !important;
+                margin: 0.08in auto !important;
                 border-radius: 6px !important;
                 box-sizing: border-box !important;
             }
 
             .cert-legalization-title {
                 font-family: 'Cinzel', serif;
-                font-size: 0.68rem;
+                font-size: 0.66rem;
                 color: #0088a8;
                 text-transform: uppercase;
                 letter-spacing: 1px;
-                margin-bottom: 0.15rem;
+                margin-bottom: 0.05in;
                 font-weight: 700;
                 text-align: center;
             }
 
             .cert-legalization-text {
                 font-family: 'Cormorant Garamond', serif;
-                font-size: 0.8rem;
+                font-size: 0.78rem;
                 line-height: 1.35;
                 color: #334155;
                 text-align: center;
@@ -704,21 +706,21 @@
 
             .cert-id-card-section {
                 text-align: center;
-                margin-top: 0.15rem;
+                margin-top: 0.08in;
             }
 
             .cert-id-card-title {
                 font-family: 'Outfit', sans-serif;
-                font-size: 0.65rem;
+                font-size: 0.62rem;
                 text-transform: uppercase;
                 font-weight: 600;
                 color: #64748b;
-                margin-bottom: 0.2rem;
+                margin-bottom: 0.05in;
                 letter-spacing: 0.5px;
             }
 
             .cert-id-card-section img {
-                max-width: 220px !important;
+                max-width: 185px !important;
                 border: 1px solid #cbd5e1 !important;
                 border-radius: 8px !important;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
@@ -729,8 +731,8 @@
                 justify-content: space-between !important;
                 align-items: center !important;
                 border-top: 1px solid #cbd5e1 !important;
-                padding-top: 0.35rem !important;
-                margin-top: 0.15rem !important;
+                padding-top: 0.1in !important;
+                margin-top: 0.08in !important;
             }
 
             .cert-footer-col {
