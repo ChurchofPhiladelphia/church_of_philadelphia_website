@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credential Verification Registry | Church of Philadelphia</title>
+    <meta name="description" content="Official Ministry Credential Verification Registry for the Church of Philadelphia. Verify ordained ministers, chaplains, and legalization apostille attestations.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0b0d; /* Deep obsidian black */
+            --bg-card: rgba(18, 20, 24, 0.75); /* Translucent dark navy-charcoal */
+            --border: rgba(197, 160, 89, 0.2); /* Muted gold border */
+            --accent-gold: #c5a059; /* Antique gold */
+            --accent-gold-glow: rgba(197, 160, 89, 0.3);
+            --accent-gold-bright: #e9c47a;
+            --accent-cyan: #00e5ff; /* Electric cyan blue */
+            --accent-cyan-glow: rgba(0, 229, 255, 0.35);
+            --text-primary: #f5f6f8; /* Off-white */
+            --text-secondary: #9fa4b3; /* Muted slate gray */
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(0, 229, 255, 0.04) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(197, 160, 89, 0.05) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 11, 13, 0.85);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+        }
+
+        .nav-logo span {
+            color: var(--accent-gold);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item a:hover,
+        .nav-item.active a {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 150px;
+            padding-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, rgba(197, 160, 89, 0.05) 50%, transparent 100%);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 16px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            background: rgba(197, 160, 89, 0.05);
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-gold-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Verification Form Section */
+        .verify-section {
+            padding: 2rem 0 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verify-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .form-control {
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: rgba(10, 11, 13, 0.6);
+            transition: var(--transition);
+            outline: none;
+            width: 100%;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px var(--accent-cyan-glow);
+            background: rgba(10, 11, 13, 0.9);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #a37f39 100%);
+            color: #000000;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.4);
+            background: linear-gradient(135deg, var(--accent-gold-bright) 0%, var(--accent-gold) 100%);
+        }
+
+        /* Results Display */
+        .result-container {
+            margin-top: 2.5rem;
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .status-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .badge-active {
+            background: rgba(5, 150, 105, 0.15);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .badge-exemption {
+            background: rgba(0, 229, 255, 0.12);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            box-shadow: 0 0 15px var(--accent-cyan-glow);
+        }
+
+        .badge-notfound {
+            background: rgba(220, 38, 38, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .details-grid {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .detail-val {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .detail-val.highlight {
+            color: var(--accent-gold-bright);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .legalization-card {
+            background: rgba(197, 160, 89, 0.06);
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .legalization-card strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .card-image-wrapper {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .card-image-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
+        }
+
+        .card-image-wrapper img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 229, 255, 0.15);
+        }
+
+        .btn-action-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn-print {
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold-bright);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-print:hover {
+            background: var(--accent-gold);
+            color: #000000;
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+        }
+
+        /* Screen display hide for print-only element */
+        .print-only-cert {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #060708;
+            padding: 50px 0 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-logo img {
+            height: 36px;
+            width: 36px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Print Style Overrides - Single Page Chancery Certificate Layout */
+        @media print {
+            @page {
+                size: portrait;
+                margin: 0;
+            }
+
+            body, html {
+                background: #ffffff !important;
+                color: #1e293b !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 100vh !important;
+                width: 100vw !important;
+                overflow: hidden !important;
+                background-image: none !important;
+            }
+
+            header, footer, .hero-section, .verify-section, .btn-action-group, #resultArea, #successResult, #failureResult {
+                display: none !important;
+            }
+
+            .print-only-cert {
+                display: block !important;
+                width: 100vw;
+                height: 100vh;
+                box-sizing: border-box;
+                background: #ffffff;
+                padding: 6mm 8mm;
+            }
+
+            .cert-border {
+                border: 4px solid #0099b8; /* Electric Cyan Outer Border */
+                outline: 1px solid #0f172a; /* Inner Thin Dark Border */
+                outline-offset: -8px;
+                height: 100%;
+                padding: 1.4rem 1.8rem;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: #f8fafc;
+                position: relative;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cert-corner-t-l, .cert-corner-t-r, .cert-corner-b-l, .cert-corner-b-r {
+                position: absolute;
+                width: 22px;
+                height: 22px;
+                border: 3px solid #0099b8;
+                pointer-events: none;
+            }
+            .cert-corner-t-l { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+            .cert-corner-t-r { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+            .cert-corner-b-l { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+            .cert-corner-b-r { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+            .cert-header {
+                text-align: center;
+                margin-top: 0.1rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .cert-seal-top {
+                height: 72px;
+                width: auto;
+                margin-bottom: 0.3rem;
+            }
+
+            .cert-title-main {
+                font-family: 'Cinzel', serif;
+                text-transform: uppercase;
+                font-size: 2.15rem;
+                letter-spacing: 4px;
+                color: #0f172a;
+                margin: 0 0 0.15rem 0;
+                font-weight: 700;
+            }
+
+            .cert-title-sub {
+                font-family: 'Cinzel', serif;
+                font-size: 1.1rem;
+                color: #0088a8;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin: 0;
+                font-weight: 700;
+            }
+
+            .cert-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex-grow: 1;
+                margin: 0.4rem 0;
+                gap: 0.5rem;
+            }
+
+            .cert-attestation-text {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.25rem;
+                line-height: 1.5;
+                text-align: justify;
+                text-align-last: center;
+                color: #0f172a;
+                font-style: italic;
+                margin: 0.3rem auto;
+                max-width: 730px;
+            }
+
+            .cert-meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                border-top: 1px solid #cbd5e1;
+                border-bottom: 1px solid #cbd5e1;
+                padding: 0.4rem 0;
+                max-width: 660px;
+                margin: 0.2rem auto;
+                width: 100%;
+            }
+
+            .cert-meta-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cert-meta-label {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.68rem;
+                text-transform: uppercase;
+                color: #64748b;
+                letter-spacing: 1px;
+                margin-bottom: 0.12rem;
+            }
+
+            .cert-meta-val {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: #0f172a;
+            }
+
+            .cert-badge-box {
+                text-align: center;
+                margin: 0.2rem auto;
+            }
+
+            .cert-badge-text {
+                display: inline-block;
+                border: 1px solid #059669;
+                background: #ecfdf5;
+                color: #047857;
+                padding: 4px 16px;
+                border-radius: 4px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.78rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .cert-legalization-wrapper {
+                border: 1px solid rgba(0, 153, 184, 0.35);
+                background: rgba(0, 153, 184, 0.04);
+                padding: 0.5rem 1rem;
+                max-width: 660px;
+                margin: 0.2rem auto;
+                border-radius: 6px;
+                box-sizing: border-box;
+            }
+
+            .cert-legalization-title {
+                font-family: 'Cinzel', serif;
+                font-size: 0.72rem;
+                color: #0088a8;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 0.2rem;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .cert-legalization-text {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 0.85rem;
+                line-height: 1.4;
+                color: #334155;
+                text-align: center;
+                margin: 0;
+            }
+
+            .cert-legalization-text strong {
+                color: #0f172a;
+            }
+
+            .cert-id-card-section {
+                text-align: center;
+                margin-top: 0.2rem;
+            }
+
+            .cert-id-card-title {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.68rem;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: #64748b;
+                margin-bottom: 0.25rem;
+                letter-spacing: 0.5px;
+            }
+
+            .cert-id-card-section img {
+                max-width: 255px;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            }
+
+            .cert-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid #cbd5e1;
+                padding-top: 0.45rem;
+                margin-top: 0.2rem;
+            }
+
+            .cert-footer-col {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .cert-footer-col.left {
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .cert-footer-col.center {
+                text-align: center;
+                align-items: center;
+            }
+
+            .cert-footer-col.right {
+                text-align: right;
+                align-items: flex-end;
+            }
+
+            .cert-seal-bottom {
+                height: 42px;
+                width: auto;
+            }
+
+            .cert-footer-label {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.6rem;
+                text-transform: uppercase;
+                color: #64748b;
+                letter-spacing: 1px;
+                margin-bottom: 2px;
+            }
+
+            .cert-footer-val {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #1e293b;
+            }
+
+            .cert-footer-date {
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.72rem;
+                color: #64748b;
+            }
+
+            .cert-footer-hash {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.68rem;
+                color: #334155;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="church_of_philadelphia_logo_no_background.svg" alt="Church of Philadelphia Logo">
+                CHURCH OF PHILADELPHIA
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="index.html#scriptures">Scriptures</a></li>
+                <li class="nav-item"><a href="index.html#sanctuary">Sanctuary</a></li>
+                <li class="nav-item"><a href="index.html#connect">Connect</a></li>
+                <li class="nav-item active"><a href="verify.html">Credentials</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Portal Section -->
+    <section class="hero-section">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-content">
+            <span class="hero-tagline">Official Verification Portal &bull; Revelation 3:7-13</span>
+            <h1 class="hero-title">Ministry Credential Registry</h1>
+            <p class="hero-subtitle">
+                Verify active ordained minister standing, official ecclesiastical callings, vaccine religious exemptions, and Den Haag apostille legalizations under full faith and affirmation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Verification Search Section -->
+    <section class="verify-section">
+        <div class="container">
+            <div class="verify-card">
+                <form id="verifyForm" onsubmit="verifyCredentials(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="ministerName">Minister Full Name</label>
+                            <input class="form-control" type="text" id="ministerName" placeholder="Enter Minister Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="idNumber">Identification / Apostille Number</label>
+                            <input class="form-control" type="text" id="idNumber" placeholder="Enter Identification or Apostille Number">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        Verify Credential in Registry
+                    </button>
+                </form>
+
+                <!-- Search Results Output -->
+                <div class="result-container" id="resultArea">
+                    
+                    <!-- SUCCESS RESULT CARD -->
+                    <div id="successResult" style="display: none;">
+                        <div class="status-badge-container">
+                            <div class="status-badge badge-active">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Active / Perpetual Standing
+                            </div>
+                            <div class="status-badge badge-exemption">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                Vaccine Religious Exemption on File
+                            </div>
+                        </div>
+
+                        <div class="details-grid">
+                            <div class="detail-row">
+                                <span class="detail-label">Minister of the Gospel</span>
+                                <span class="detail-val" id="displayFullName"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Office &amp; Calling</span>
+                                <span class="detail-val" id="displayTitle"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Primary Identification Number</span>
+                                <span class="detail-val highlight" id="displayID"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Date of Issuance / Ordination</span>
+                                <span class="detail-val" id="displayIssueDate"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Ecclesiastical Jurisdiction</span>
+                                <span class="detail-val">Church of Philadelphia / Mission House</span>
+                            </div>
+                        </div>
+
+                        <div class="legalization-card" id="displayLegalization"></div>
+
+                        <div class="card-image-wrapper">
+                            <div class="card-image-title">Credentials Identification Reference</div>
+                            <img id="credentialCard" src="" alt="Ministry Credential Card Preview">
+                        </div>
+
+                        <div class="btn-action-group">
+                            <button class="btn-print" onclick="window.print()">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                                Print Official Certificate
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- FAILURE RESULT CARD -->
+                    <div id="failureResult" style="display: none;">
+                        <div class="status-badge-container">
+                            <div class="status-badge badge-notfound">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                Record Not Found
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 10px;">
+                            No active ministry credential record was found matching the provided search criteria. Please verify the minister's name or identification number and try again.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINT-ONLY CHANCERY ATTESTATION CERTIFICATE -->
+    <div class="print-only-cert">
+        <div class="cert-border">
+            <div class="cert-corner-t-l"></div>
+            <div class="cert-corner-t-r"></div>
+            <div class="cert-corner-b-l"></div>
+            <div class="cert-corner-b-r"></div>
+
+            <!-- Cert Header -->
+            <div class="cert-header">
+                <img src="church_of_philadelphia_logo_no_background.svg" class="cert-seal-top" alt="Church Seal">
+                <h1 class="cert-title-main" id="certHouseName">CHURCH OF PHILADELPHIA</h1>
+                <h2 class="cert-title-sub">OFFICIAL ATTESTATION OF ORDINATION</h2>
+            </div>
+
+            <!-- Cert Body -->
+            <div class="cert-body">
+                <p class="cert-attestation-text" id="certAttestationCopy">
+                    The Church of Philadelphia hereby certifies that the ministry credentials presented herein were validly issued to the named ordained minister. This record is active, verified, and attested to under the full faith and affirmation of the Church of Philadelphia.
+                </p>
+
+                <!-- Metadata Grid -->
+                <div class="cert-meta-grid">
+                    <div class="cert-meta-item">
+                        <span class="cert-meta-label">Minister of the Gospel</span>
+                        <span class="cert-meta-val" id="certMinisterName"></span>
+                    </div>
+                    <div class="cert-meta-item">
+                        <span class="cert-meta-label">Office &amp; Calling</span>
+                        <span class="cert-meta-val" id="certMinistryOffice"></span>
+                    </div>
+                    <div class="cert-meta-item">
+                        <span class="cert-meta-label">Date of Issuance</span>
+                        <span class="cert-meta-val" id="certIssueDate"></span>
+                    </div>
+                    <div class="cert-meta-item">
+                        <span class="cert-meta-label">Registry Status</span>
+                        <span class="cert-meta-val" style="color: #059669; font-weight: 700;">Active / Perpetual</span>
+                    </div>
+                </div>
+
+                <div class="cert-badge-box">
+                    <span class="cert-badge-text">&#9745; Vaccine Religious Exemption on File</span>
+                </div>
+
+                <!-- Legalization Box -->
+                <div class="cert-legalization-wrapper">
+                    <div class="cert-legalization-title">Legalization &amp; Apostille Attestation</div>
+                    <p id="certLegalization" class="cert-legalization-text"></p>
+                </div>
+
+                <!-- ID Card Section -->
+                <div class="cert-id-card-section">
+                    <div class="cert-id-card-title">Credentials Identification Reference</div>
+                    <img id="certCardImg" src="" alt="ID Card">
+                </div>
+            </div>
+
+            <!-- Footer Meta & Seals -->
+            <div class="cert-footer">
+                <div class="cert-footer-col left">
+                    <span class="cert-footer-label">Verification Authority</span>
+                    <span class="cert-footer-val" id="certRegistryName">Church of Philadelphia Official Registry</span>
+                    <span class="cert-footer-date" id="certVerifyDate"></span>
+                </div>
+
+                <div class="cert-footer-col center">
+                    <img src="church_of_philadelphia_logo_no_background.svg" class="cert-seal-bottom" alt="Official Ministry Seal">
+                </div>
+
+                <div class="cert-footer-col right">
+                    <span class="cert-footer-label">Secure Verification Registry Hash</span>
+                    <span class="cert-footer-hash" id="certVerifyTimestamp"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="index.html" class="footer-logo">
+                <img src="church_of_philadelphia_logo_no_background.svg" alt="Church of Philadelphia Logo">
+                CHURCH OF PHILADELPHIA
+            </a>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#scriptures">Scriptures</a></li>
+                <li><a href="index.html#sanctuary">Sanctuary</a></li>
+                <li><a href="index.html#connect">Connect</a></li>
+                <li><a href="verify.html">Credentials</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 CHURCH OF PHILADELPHIA &bull; Revelation 3:7-13 Covenant &bull; Private Spiritual Association</p>
+        </div>
+    </footer>
+
+    <!-- Verification Registry Logic -->
+    <script>
+        // --- DATABASE CONFIGURATION ---
+        const database = [
+            {
+                fullName: "jeffrey allan brode",
+                cleanName: "jeffrey brode",
+                primaryID: "18-11570",
+                ids: ["1811570", "18-11570", "26004114", "26-004114", "2416616", "24-16616", "24/16616"],
+                title: "Ordained Minister and Chaplain",
+                issueDate: "August 8, 2016",
+                image: "seals/jeffrey_credential.png",
+                legalization: "<strong>Legalization and Apostille:</strong> The Ordained Minister and Chaplain, jeffrey allan brode, holds ordained ministry credentials with the Church of Philadelphia dated September 15, 2009, and is an active minister in good standing with our Church. Operating through his Micro Church established hereunder, House of Brode, he holds international ministry credentials from House of Brode and Mission House, duly legalized with the District Court of Den Haag under Apostille Number 18-11570, and updated under Apostille Numbers 24-16616 and 26-004114."
+            }
+        ];
+
+        const HOUSE_NAME = "Church of Philadelphia";
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('certHouseName').innerText = HOUSE_NAME.toUpperCase();
+            document.getElementById('certRegistryName').innerText = `${HOUSE_NAME} Official Registry`;
+            document.getElementById('certAttestationCopy').innerHTML = `The Church of Philadelphia hereby certifies that the ministry credentials presented herein were validly issued to the named ordained minister. This record is active, verified, and attested to under the full faith and affirmation of the Church of Philadelphia.`;
+            
+            // Auto-verify if URL parameters are provided
+            const params = new URLSearchParams(window.location.search);
+            const nameParam = params.get('name') || params.get('minister');
+            const idParam = params.get('id');
+            
+            if (nameParam || idParam) {
+                if (nameParam) document.getElementById('ministerName').value = nameParam;
+                if (idParam) document.getElementById('idNumber').value = idParam;
+                verifyCredentials(new Event('submit'));
+            }
+        });
+
+        function verifyCredentials(event) {
+            event.preventDefault();
+            
+            const nameInput = document.getElementById('ministerName').value.trim().toLowerCase();
+            const idInput = document.getElementById('idNumber').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            
+            const resultArea = document.getElementById('resultArea');
+            const successResult = document.getElementById('successResult');
+            const failureResult = document.getElementById('failureResult');
+            
+            resultArea.style.display = 'block';
+            successResult.style.display = 'none';
+            failureResult.style.display = 'none';
+            
+            let matched = null;
+            
+            for (const minister of database) {
+                const idMatches = idInput.length > 0 && minister.ids.some(id => id.replace(/[^a-z0-9]/g, '') === idInput);
+                
+                let nameMatches = false;
+                if (nameInput.length > 0) {
+                    const normInput = nameInput.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+                    const queryTokens = normInput.split(/\s+/).filter(Boolean);
+                    
+                    const normFull = minister.fullName.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+                    const normClean = (minister.cleanName || '').toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+                    const ministerTokens = normFull.split(/\s+/).filter(Boolean);
+                    
+                    if (normInput === normFull || normInput === normClean) {
+                        nameMatches = true;
+                    } else if (queryTokens.length > 0) {
+                        nameMatches = queryTokens.every(qTok => {
+                            return ministerTokens.some(mTok => mTok === qTok || (qTok.length === 1 && mTok.startsWith(qTok)));
+                        });
+                    }
+                }
+                
+                if (idMatches || nameMatches) {
+                    matched = minister;
+                    break;
+                }
+            }
+            
+            if (matched) {
+                // Populate Screen Display
+                successResult.style.display = 'block';
+                document.getElementById('displayFullName').innerText = matched.fullName;
+                document.getElementById('displayTitle').innerText = matched.title;
+                document.getElementById('displayID').innerText = matched.primaryID;
+                document.getElementById('displayIssueDate').innerText = matched.issueDate;
+                
+                const cardImg = document.getElementById('credentialCard');
+                cardImg.src = matched.image;
+                
+                const legBox = document.getElementById('displayLegalization');
+                if (matched.legalization) {
+                    legBox.innerHTML = matched.legalization;
+                    legBox.style.display = 'block';
+                } else {
+                    legBox.style.display = 'none';
+                }
+                
+                // Populate Print Certificate Elements
+                document.getElementById('certMinisterName').innerText = matched.fullName;
+                document.getElementById('certMinistryOffice').innerText = matched.title;
+                document.getElementById('certIssueDate').innerText = matched.issueDate;
+                
+                const certCardImg = document.getElementById('certCardImg');
+                certCardImg.src = matched.image;
+                
+                const certLegBox = document.getElementById('certLegalization');
+                if (matched.legalization) {
+                    certLegBox.innerHTML = matched.legalization;
+                    certLegBox.style.display = 'block';
+                } else {
+                    certLegBox.style.display = 'none';
+                }
+                
+                // Timestamps for Attestation Certificate
+                const now = new Date();
+                const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('certVerifyDate').innerText = `Verification Date: ${now.toLocaleDateString('en-US', dateOptions)}`;
+                
+                const timeStr = `Registry Hash: ${now.toISOString().replace('T', ' ').substring(0, 19)} UTC`;
+                document.getElementById('certVerifyTimestamp').innerText = timeStr;
+                
+                setTimeout(() => {
+                    successResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            } else {
+                failureResult.style.display = 'block';
+                setTimeout(() => {
+                    failureResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
